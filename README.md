@@ -73,6 +73,8 @@ It can be used for activities such as:
 
 ![Lab Architecture](./Lab%20Architecture.png)
 
+*Lab architecture: the Kali, Windows 10, Windows 11, and Android VMs connected to the same NAT Network.*
+
 The attacker machine (Kali Linux) and all target machines (Windows 10, Windows 11, Android) are connected to the same NAT Network. Additional target machines can be added to the same virtual network in future projects.
 
 ---
@@ -136,6 +138,8 @@ IPv6:         Disabled
 
 ![NatNetwork_1 configuration](./0.%20NAT%20Network%20Config.png)
 
+*NatNetwork_1 configuration in VirtualBox.*
+
 A **NAT Network** was selected because multiple virtual machines connected to the same NAT Network can communicate with one another while also having outbound network connectivity.
 
 This allows the attacker and target VMs to communicate within the lab.
@@ -177,6 +181,8 @@ DNS:         8.8.8.8
 A consistent IP address makes it easier to document the lab and reference the Kali machine in future exercises.
 
 ![Kali VM Network Configuration](./1.%20kali%20VM%20network%20config.png)
+
+*Kali VM network configuration.*
 
 ---
 
@@ -232,6 +238,8 @@ DNS:
 
 ![Kali VM Network set up verification](./1.1.Kali%20network%20verfication.png)
 
+*Kali VM network setup verification.*
+
 ### 🐞 Problems Encountered & Solutions
 
 **Problem: Kali Linux network issue**
@@ -275,6 +283,8 @@ DNS:          8.8.8.8
 
 ![Windows 10 VM Network Configuration](./3.%20windows%2010%20vm%20network%20setup%20complete.png)
 
+*Windows 10 VM network configuration after setup is complete.*
+
 ### 🔎 Testing
 
 | ✅ Test                             | 🎯 Expected Result                                |
@@ -284,8 +294,20 @@ DNS:          8.8.8.8
 | 🌍 Windows 10 reaches the Internet  | Successful replies                                |
 
 ![Windows 10 VM pings Kali](./4.%20windows%2010%20vm%20can%20ping%20kali%20vm%20test.png)
-![Kali VM can ping windows 10 VM](./5.%20showing%20kalivm%20able%20to%20ping%20windows10%20vm%20-%20firewall%20rules%20change%20to%20allow%20recieving%20ipv4%20icmp%20packets%20change%20to%20allow%20this.png)
-![Windows VM can reach the internet](./13.%20windows%2010%20reaches%20the%20internet.png)
+
+*Windows 10 VM successfully pinging the Kali VM.*
+
+<br>
+
+![Kali VM can ping Windows 10 VM](./5.%20showing%20kalivm%20able%20to%20ping%20windows10%20vm%20-%20firewall%20rules%20change%20to%20allow%20recieving%20ipv4%20icmp%20packets%20change%20to%20allow%20this.png)
+
+*Kali VM successfully pinging the Windows 10 VM after the firewall rules were changed to allow incoming IPv4 ICMP packets.*
+
+<br>
+
+![Windows 10 VM can reach the internet](./13.%20windows%2010%20reaches%20the%20internet.png)
+
+*Windows 10 VM reaching the Internet.*
 
 ### 🐞 Problems Encountered & Solutions
 
@@ -299,7 +321,9 @@ File and Printer Sharing (Echo Request - ICMPv4-In) Domain Yes
 File and Printer Sharing (Echo Request - ICMPv4-In) Private Yes
 File and Printer Sharing (Echo Request - ICMPv4-In) Public Yes
 
-![You should enable the inbound firewall rules shown in the right window](./5.%20showing%20kalivm%20able%20to%20ping%20windows10%20vm%20-%20firewall%20rules%20change%20to%20allow%20recieving%20ipv4%20icmp%20packets%20change%20to%20allow%20this.png)
+![Inbound firewall rules to enable on Windows 10](./5.%20showing%20kalivm%20able%20to%20ping%20windows10%20vm%20-%20firewall%20rules%20change%20to%20allow%20recieving%20ipv4%20icmp%20packets%20change%20to%20allow%20this.png)
+
+*The inbound firewall rules to enable (shown in the right window) so the VM accepts ICMP echo requests.*
 
 ✅ **Status:** SOLVED
 
@@ -330,7 +354,9 @@ Gateway:      10.0.0.1
 DNS:          8.8.8.8
 ```
 
-![Windows 11 VM network cofiguration](./10.%20Windows11%20vm%20network%20config.png)
+![Windows 11 VM Network Configuration](./10.%20Windows11%20vm%20network%20config.png)
+
+*Windows 11 VM network configuration.*
 
 ### 🔎 Testing
 
@@ -341,7 +367,14 @@ DNS:          8.8.8.8
 | 🌍 Windows 11 reaches the Internet  | Successful replies                                |
 
 ![Windows 11 VM can ping Kali VM](./11.%20Win11%20vm%20can%20ping%20kali%20vm.png)
-![Kali VM can ping windows 10 VM](./12.%20Kali%20vm%20can%20ping%20windows11%20vm%20+%20showing%20the%20fix%20and%20changes%20in%20the%20win%2011%20firewall%20inbound%20ruling.png)
+
+*Windows 11 VM successfully pinging the Kali VM.*
+
+<br>
+
+![Kali VM can ping Windows 11 VM](./12.%20Kali%20vm%20can%20ping%20windows11%20vm%20+%20showing%20the%20fix%20and%20changes%20in%20the%20win%2011%20firewall%20inbound%20ruling.png)
+
+*Kali VM successfully pinging the Windows 11 VM, with the fix and changes to the Windows 11 firewall inbound rules shown.*
 
 ### 🐞 Problems Encountered & Solutions
 
@@ -381,7 +414,9 @@ Gateway:      10.0.0.1
 DNS:          8.8.8.8
 ```
 
-![Android VM network configuration](./6.%20Android%20vm%20network%20config%20done.png)
+![Android VM Network Configuration](./6.%20Android%20vm%20network%20config%20done.png)
+
+*Android VM network configuration completed.*
 
 ### 🔎 Testing
 
@@ -392,8 +427,20 @@ DNS:          8.8.8.8
 | 🌍 reaches the Internet          | Successful         |
 
 ![Kali VM can ping Android VM](./8.%20Can%20ping%20android%20vm%20from%20kali%20vm.png)
+
+*Kali VM successfully pinging the Android VM.*
+
+<br>
+
 ![Android VM can ping Kali VM](./9.%20Can%20ping%20kali%20vm%20from%20android%20vm.png)
-![Android VM can reach the internet, search using chrome for example](./7.%20Android%20vm%20network%20test%20-%20can%20search%20using%20chrome.png)
+
+*Android VM successfully pinging the Kali VM.*
+
+<br>
+
+![Android VM can reach the internet](./7.%20Android%20vm%20network%20test%20-%20can%20search%20using%20chrome.png)
+
+*Android VM reaching the Internet (searching with Chrome as an example).*
 
 ### 🐞 Problems Encountered & Solutions
 
